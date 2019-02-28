@@ -57,6 +57,7 @@ Miscellaneous
 def progressBar(bar_length, value, total):
     '''
     Prints a simple progress bar denoting progress in a for loop
+    credit: Alan Selewa
     '''
 
     frac = value/total
