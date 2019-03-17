@@ -10,3 +10,14 @@ nl $1 | uniq -f1 -D | cut -f1 | sed -n 'n;p'
 
 # print if a column value equals
 awk '$1 == "findtext" {print $3}'
+
+
+# input ftp 
+# output ascp
+
+awk 'FS="\t", OFS="\t" { gsub("ftp.sra.ebi.ac.uk", "era-fasp@fasp.sra.ebi.ac.uk:"); print }' $1 | \
+    cut -f3 | \
+    awk -F ";" 'OFS="\n" {print $1, $2}' | \
+    awk NF | \
+    awk 'NR > 1, OFS="\n" {print "ascp -QT -l 300m -P33001 -i $HOME/Applications/Aspera\\ Connect.app/Contents/Resources/asperaweb_id_dsa.openssh" " " $1 " ."}' > $2
+
