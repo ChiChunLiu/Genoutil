@@ -1,0 +1,9 @@
+ctrl k: kill from cursor to end
+
+ctrl u: kill from cursor to start
+
+ctrl w: kill word
+
+ctrl y: yank back the last thing cut
+
+ctrl x e: insert a command line into a popped up editor
